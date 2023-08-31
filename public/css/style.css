@@ -1,0 +1,317 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  box-sizing: content-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+#bg {
+  width: 100%;
+  min-width: 250px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  min-width: 250px;
+  min-height: 100%;
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .avatar {
+  width: 80px;
+  height: 80px;
+  margin-top: 30%;
+  border-radius: 50%;
+  border: 1px solid #f6f7fb;
+  opacity: 0.6;
+}
+
+.container .nickname {
+  font-size: 18px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  animation: nickname-shadow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nickname-shadow {
+  from {
+    text-shadow: 0 0 2px #f6f7fb;
+  }
+
+  to {
+    text-shadow: 1px 1px 20px #f6f7fb;
+  }
+}
+
+
+.container .introduce {
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 0 28px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.container .quote {
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 0 28px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: cursive;
+  line-height: 28px;
+}
+
+.container .quote::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  border-radius: 2px;
+  background-color: #fff;
+  vertical-align: middle;
+  animation: blink 0.8s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+nav {
+  width: 80%;
+  min-height: 40px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .item {
+  width: 28px;
+  height: 28px;
+  margin: 8px 12px;
+  position: relative;
+  display: flex;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+nav .item a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+nav .item a:focus,
+nav .item a:visited,
+nav .item a:active {
+  color: #fff;
+}
+
+nav .item a img {
+  width: 100%;
+  height: 100%;
+}
+
+nav .item .tooltip {
+  position: absolute;
+  width: 80px;
+  max-height: 80px;
+  background-color: rgb(255, 255, 255);
+  bottom: 40px;
+  padding: 4px;
+  border-radius: 4px;
+  z-index: 10;
+  color: #333;
+  letter-spacing: 2px;
+  text-align: center;
+  opacity: 0;
+  z-index: -1;
+  transform: translateY(-40px);
+  transition: all 0.1s ease-in-out;
+}
+
+nav .item .tooltip img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+nav .item .tooltip::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: -4px;
+  left: 40px;
+  transform: rotate(45deg);
+  z-index: 9;
+}
+
+
+nav .item a:focus+.tooltip,
+nav .item a:hover+.tooltip {
+  transform: translateY(0);
+  z-index: 10;
+  opacity: 1;
+}
+
+footer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer .icp {
+  color: #f6f7fb;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+
+footer .copyright {
+  color: #999;
+  font-size: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (min-width:768px) {
+  .container .avatar {
+    width: 88px;
+    height: 88px;
+    margin-top: 20%;
+  }
+
+  .container .nickname {
+    font-size: 20px;
+    margin-top: 28px;
+  }
+
+  .container .introduce {
+    font-size: 16px;
+    margin-top: 28px;
+    padding: 0 40px;
+  }
+
+  .container .quote {
+    font-size: 16px;
+    margin-top: 28px;
+    padding: 0 40px;
+  }
+
+  .container .quote::after {
+    height: 20px;
+  }
+
+  nav {
+    margin-top: 90px;
+  }
+
+  nav .item {
+    width: 32px;
+    height: 32px;
+  }
+
+  nav .item .tooltip {
+    bottom: 48px;
+  }
+
+  nav .item a {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .container .avatar {
+    width: 96px;
+    height: 96px;
+    margin-top: 10%;
+  }
+
+  .container .nickname {
+    font-size: 22px;
+    margin-top: 32px;
+  }
+
+  .container .introduce {
+    font-size: 18px;
+    margin-top: 36px;
+    padding: 0 80px;
+  }
+
+  .container .quote {
+    font-size: 18px;
+    margin-top: 36px;
+    padding: 0 80px;
+  }
+
+
+  .container .quote::after {
+    height: 22px;
+  }
+
+  nav {
+    margin-top: 100px;
+  }
+
+  nav .item {
+    width: 36px;
+    height: 36px;
+    margin: 12px;
+  }
+
+  nav .item .tooltip {
+    bottom: 56px;
+  }
+
+  nav .item a {
+    width: 24px;
+    height: 24px;
+  }
+}
