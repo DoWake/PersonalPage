@@ -39,6 +39,7 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 90px 2px #fff;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .container .nickname {
